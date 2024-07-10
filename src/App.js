@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import styled from 'styled-components';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -80,12 +80,12 @@ const App = () => {
         <div className="cursor-follower" ref={cursorFollowerRef}></div>
         <div data-scroll-container>
           <Header />
-          <Switch>
+          <Routes>
             <Route exact path="/" component={Home} />
             <Route path="/about" component={About} />
             <Route path="/services" component={Services} />
             <Route path="/contact" component={Contact} />
-          </Switch>
+          </Routes>
           <Footer />
         </div>
       </AppContainer>
