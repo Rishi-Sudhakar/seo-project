@@ -17,6 +17,22 @@ gsap.registerPlugin(ScrollTrigger);
 const AppContainer = styled.div`
   background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
   min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('https://source.unsplash.com/random/1920x1080?abstract') no-repeat center center fixed;
+    background-size: cover;
+    opacity: 0.1;
+    z-index: -1;
+    transform: translateZ(-10px) scale(2);
+  }
 `;
 
 const App = () => {
@@ -81,11 +97,11 @@ const App = () => {
         <div data-scroll-container>
           <Header />
           <Routes>
-            <Route exact path="/" component={Home} />
-            <Route path="/about" component={About} />
-            <Route path="/services" component={Services} />
-            <Route path="/contact" component={Contact} />
-          </Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
           <Footer />
         </div>
       </AppContainer>
